@@ -1,0 +1,10 @@
+{
+  "iconDefinitions": {
+    "smallbasicFile": {
+      "iconPath": "./icons/smallbasic.png"
+    }
+  },
+  "fileExtensions": {
+    "sb": "smallbasicFile"
+  }
+}
