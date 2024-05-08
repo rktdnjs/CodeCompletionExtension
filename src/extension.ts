@@ -14,30 +14,40 @@ export function activate(context: vscode.ExtensionContext) {
   let currentDocument: vscode.TextDocument | undefined = undefined;
   let disposable = vscode.commands.registerCommand("extension.completeCode", async () => {
     const folderPath = vscode.workspace.workspaceFolders?.[0].uri.fsPath;
+    const userEditor = vscode.window.activeTextEditor;
+    const untitledUri = vscode.Uri.parse("untitled:" + path.join("SuggestedCode.sb"));
+    const document = await vscode.workspace.openTextDocument(untitledUri);
+    const newEditor = await vscode.window.showTextDocument(document, {
+      viewColumn: vscode.ViewColumn.Beside,
+      preview: false,
+    });
 
     if (!folderPath) {
       vscode.window.showErrorMessage("Workspace is not open");
       return;
     }
 
-    const untitledUri = vscode.Uri.parse("untitled:" + path.join("SuggestedCode.sb"));
-    const document = await vscode.workspace.openTextDocument(untitledUri);
-    const editor = await vscode.window.showTextDocument(document, {
-      viewColumn: vscode.ViewColumn.Beside,
-      preview: false,
-    });
+    if (userEditor) {
+      const document = userEditor.document;
+      const entireText = document.getText(); // 문서의 전체 내용을 가져옵니다.
+      console.log("Current document text:", entireText); // 콘솔에 현재 문서의 내용 출력
 
-    // 정보 메시지 표시 (지연 처리 포함)
-    vscode.window.showInformationMessage("ChatGPT SmallBasic Completion is generating code...", "OK");
-
-    setTimeout(async () => {
-      await editor.edit((editBuilder) => {
-        editBuilder.insert(
-          new vscode.Position(0, 0),
-          'TextWindow.ForegroundColor = "Yellow"\nTextWindow.WriteLine("Hello World")\n'
-        );
-      });
-    }, 5000);
+      // 정보 메시지 표시 (지연 처리 포함)
+      vscode.window.showInformationMessage("ChatGPT SmallBasic Completion is generating code...", "OK");
+      setTimeout(async () => {
+        await newEditor.edit((editBuilder) => {
+          editBuilder.insert(
+            new vscode.Position(0, 0),
+            "[입력한 코드]\n" +
+              entireText +
+              "\n\n" +
+              "==\n\n" +
+              "[제안된 코드]\n" +
+              'TextWindow.ForegroundColor = "Yellow"\nTextWindow.WriteLine("Hello World")\n'
+          );
+        });
+      }, 5000);
+    }
   });
   context.subscriptions.push(disposable);
 }
