@@ -1,6 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
+import * as path from "path";
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -20,43 +21,30 @@ export function activate(context: vscode.ExtensionContext) {
   // context.subscriptions.push(disposable);
 
   // --- Webview Example ---
+  let currentDocument: vscode.TextDocument | undefined = undefined;
+  let disposable = vscode.commands.registerCommand("extension.completeCode", async () => {
+    // 'untitled' 스키마와 함께 새 문서 URI 생성
+    const untitledUri = vscode.Uri.parse("untitled:" + path.join("SuggestedCode.sb"));
 
-  // Track the current panel with a webview
-  let currentPanel: vscode.WebviewPanel | undefined = undefined;
+    // 새로 생성된 'untitled' 문서를 열기
+    const document = await vscode.workspace.openTextDocument(untitledUri);
+    const editor = await vscode.window.showTextDocument(document, {
+      viewColumn: vscode.ViewColumn.Beside, // 새 창을 스플릿 뷰로 옆에 엽니다.
+      preview: false, // 이 문서가 프리뷰 모드가 아니게 설정합니다.
+    });
 
-  context.subscriptions.push(
-    vscode.commands.registerCommand("extension.completeCode", () => {
-      const columnToShowIn = vscode.window.activeTextEditor ? vscode.window.activeTextEditor.viewColumn : undefined;
-      // Create and show a new webview using split view
-      const panel = vscode.window.createWebviewPanel(
-        "SuggestedCompletedCode", // Identifies the 'type' of the webview. Used internally
-        "Suggested Completed Code", // Title of the panel displayed to the user
-        columnToShowIn ? vscode.ViewColumn.Beside : vscode.ViewColumn.One, // Editor column to show the new webview panel in.
-        {
-          enableScripts: true, // Webview options. More on these later.
-        }
-      );
+    // 편집기에서 코드 삽입
+    await editor.edit((editBuilder) => {
+      if (document.getText().length === 0) {
+        editBuilder.insert(
+          new vscode.Position(0, 0),
+          'TextWindow.ForegroundColor = "Yellow"\nTextWindow.WriteLine("Hello World")\n'
+        );
+      }
+    });
+  });
 
-      // 웹뷰 콘텐츠 설정
-      panel.webview.html = `
-      <html>
-      <head>
-        <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/default.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script>
-        <style>
-          body { padding: 10px; }
-          pre { background-color: #F9F9F9; padding: 5px; }
-        </style>
-      </head>
-      <body>
-        <h1>Suggested Complete Code</h1>
-        <pre><code class="smallbasic">TextWindow.ForegroundColor = "Yellow"\nTextWindow.WriteLine("Hello World")</code></pre>
-      </body>
-      </html>`;
-    })
-  );
+  context.subscriptions.push(disposable);
 }
 
 // This method is called when your extension is deactivated
