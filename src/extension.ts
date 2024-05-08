@@ -10,40 +10,35 @@ export function activate(context: vscode.ExtensionContext) {
   // This line of code will only be executed once when your extension is activated
   // console.log('Congratulations, your extension "hoho" is now active!');
 
-  // The command has been defined in the package.json file
-  // Now provide the implementation of the command with registerCommand
-  // The commandId parameter must match the command field in package.json
-  // let disposable = vscode.commands.registerCommand("extension.helloWorld", () => {
-  //   // The code you place here will be executed every time your command is executed
-  //   // Display a message box to the user
-  //   vscode.window.showInformationMessage("Hello World from hoho!");
-  // });
-  // context.subscriptions.push(disposable);
-
   // --- Webview Example ---
   let currentDocument: vscode.TextDocument | undefined = undefined;
   let disposable = vscode.commands.registerCommand("extension.completeCode", async () => {
-    // 'untitled' 스키마와 함께 새 문서 URI 생성
-    const untitledUri = vscode.Uri.parse("untitled:" + path.join("SuggestedCode.sb"));
+    const folderPath = vscode.workspace.workspaceFolders?.[0].uri.fsPath;
 
-    // 새로 생성된 'untitled' 문서를 열기
+    if (!folderPath) {
+      vscode.window.showErrorMessage("Workspace is not open");
+      return;
+    }
+
+    const untitledUri = vscode.Uri.parse("untitled:" + path.join("SuggestedCode.sb"));
     const document = await vscode.workspace.openTextDocument(untitledUri);
     const editor = await vscode.window.showTextDocument(document, {
-      viewColumn: vscode.ViewColumn.Beside, // 새 창을 스플릿 뷰로 옆에 엽니다.
-      preview: false, // 이 문서가 프리뷰 모드가 아니게 설정합니다.
+      viewColumn: vscode.ViewColumn.Beside,
+      preview: false,
     });
 
-    // 편집기에서 코드 삽입
-    await editor.edit((editBuilder) => {
-      if (document.getText().length === 0) {
+    // 정보 메시지 표시 (지연 처리 포함)
+    vscode.window.showInformationMessage("ChatGPT SmallBasic Completion is generating code...", "OK");
+
+    setTimeout(async () => {
+      await editor.edit((editBuilder) => {
         editBuilder.insert(
           new vscode.Position(0, 0),
           'TextWindow.ForegroundColor = "Yellow"\nTextWindow.WriteLine("Hello World")\n'
         );
-      }
-    });
+      });
+    }, 5000);
   });
-
   context.subscriptions.push(disposable);
 }
 
