@@ -2,6 +2,28 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
 import * as path from "path";
+import OpenAI from "openai";
+
+const openai = new OpenAI({
+  organization: 'org-0TrPXmRKst6gFbo6R4CWll5c',
+  apiKey: 'API_KEY'
+});
+
+async function generativeAIcommunication(message: string) {
+  const completion = await openai.chat.completions.create({
+    messages: [
+      { role: "system", content: "You are a great smallbasic programming language developer. You can predict the next code well based on the written code." },
+      { role: "assistant", content: "You can make a complete sentence based on the already written code and the currently incomplete sentence structure. Please replace the part that says 'Expression' in context correctly." },
+      { role: "user", content: message }
+    ],
+    model: "gpt-3.5-turbo",
+  });
+
+  // console.log(completion.choices[0].message.content)
+  const response = completion.choices[0].message.content;
+  // console.log(response);
+  return response;
+}
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -33,6 +55,11 @@ export function activate(context: vscode.ExtensionContext) {
 
       // 정보 메시지 표시 (지연 처리 포함)
       vscode.window.showInformationMessage("ChatGPT SmallBasic Completion is generating code...", "OK");
+
+      const response = await generativeAIcommunication(entireText);
+      console.log(response)
+      
+
       setTimeout(async () => {
         await newEditor.edit((editBuilder) => {
           // 웹뷰의 기존 내용을 전부 삭제(초기화)
@@ -47,7 +74,7 @@ export function activate(context: vscode.ExtensionContext) {
               "\n\n" +
               "==\n\n" +
               "[제안된 코드]\n" +
-              'TextWindow.ForegroundColor = "Yellow"\nTextWindow.WriteLine("Hello World")\n'
+              response
           );
         });
       }, 5000);
