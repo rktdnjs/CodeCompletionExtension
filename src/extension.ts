@@ -40,20 +40,23 @@ export function activate(context: vscode.ExtensionContext) {
   // --- Webview Output Code ---
   let currentDocument: vscode.TextDocument | undefined = undefined;
   let disposable = vscode.commands.registerCommand("extension.completeCode", async () => {
-    const folderPath = vscode.workspace.workspaceFolders?.[0].uri.fsPath;
-    const untitledUri = vscode.Uri.parse("untitled:" + path.join("SuggestedCode.sb"));
-    const document = await vscode.workspace.openTextDocument(untitledUri);
-    const userEditor = vscode.window.activeTextEditor;
+    const folderPath = vscode.workspace.workspaceFolders?.[0].uri.fsPath; // 첫 번째 작업영역 폴더 경로 가져오기
+    const untitledUri = vscode.Uri.parse("untitled:" + path.join("SuggestedCode.sb")); // 코드를 보여줄 제목이 지정되지 않은 문서에 대한 URI 생성
+    const document = await vscode.workspace.openTextDocument(untitledUri); // URI에서 문서 열기 또는 만들기
+    const userEditor = vscode.window.activeTextEditor; // 사용자가 '현재 작업 중인' 활성 텍스트 편집기 가져오기
+    // 사용자가 '현재 작업 중인' 활성 텍스트 편집기 옆에 새 텍스트 문서(document, 임시로만든 SuggestedCode.sb 파일) 열기
     const newEditor = await vscode.window.showTextDocument(document, {
       viewColumn: vscode.ViewColumn.Beside,
       preview: false,
     });
 
+    // 현재 작업영역이 열려있지 않다면 에러 메시지 출력
     if (!folderPath) {
       vscode.window.showErrorMessage("Workspace is not open");
       return;
     }
 
+    // 사용자가 '현재 작업 중인' 활성 텍스트 편집기가 있다면 코드를 가져와서 ChatGPT API에 전달
     if (userEditor) {
       const document = userEditor.document;
       const entireText = document.getText(); // 문서의 전체 내용(코드)을 가져온다.
