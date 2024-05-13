@@ -58,26 +58,34 @@ export function activate(context: vscode.ExtensionContext) {
       const document = userEditor.document;
       const entireText = document.getText(); // 문서의 전체 내용(코드)을 가져온다.
 
-      // 처리 메시지 표시(코드 생성 중)
-      vscode.window.showInformationMessage("ChatGPT SmallBasic Completion is generating code...");
+      vscode.window.withProgress(
+        {
+          location: vscode.ProgressLocation.Notification,
+          cancellable: false,
+        },
+        async (progress) => {
+          progress.report({ message: "ChatGPT SmallBasic Completion is generating code..." });
+          const response = await generativeAIcommunication(entireText);
+          progress.report({ message: "Updating editor now..." });
 
-      const response = await generativeAIcommunication(entireText);
+          await newEditor.edit((editBuilder) => {
+            // 웹뷰의 기존 내용을 전부 삭제(초기화)
+            const lastLine = newEditor.document.lineAt(newEditor.document.lineCount - 1);
+            const range = new vscode.Range(new vscode.Position(0, 0), lastLine.range.end);
+            editBuilder.delete(range);
 
-      await newEditor.edit((editBuilder) => {
-        // 웹뷰의 기존 내용을 전부 삭제(초기화)
-        const lastLine = newEditor.document.lineAt(newEditor.document.lineCount - 1);
-        const range = new vscode.Range(new vscode.Position(0, 0), lastLine.range.end);
-        editBuilder.delete(range);
+            // 새롭게 받은 내용을 웹뷰에 출력
+            editBuilder.insert(
+              new vscode.Position(0, 0),
+              "[입력한 코드]\n" + entireText + "\n\n" + "==\n\n" + "[제안된 코드]\n" + response
+            );
+          });
 
-        // 새롭게 받은 내용을 웹뷰에 출력
-        editBuilder.insert(
-          new vscode.Position(0, 0),
-          "[입력한 코드]\n" + entireText + "\n\n" + "==\n\n" + "[제안된 코드]\n" + response
-        );
-      });
-
-      // 처리 메시지 표시(코드 생성 완료)
-      vscode.window.showInformationMessage("ChatGPT SmallBasic Completion has completed generating code!");
+          progress.report({ message: "ChatGPT SmallBasic Completion has completed generating code!" });
+          await new Promise((resolve) => setTimeout(resolve, 2000)); // 2초 동안 완료 메시지 출력
+          return;
+        }
+      );
     }
   });
   context.subscriptions.push(disposable);
