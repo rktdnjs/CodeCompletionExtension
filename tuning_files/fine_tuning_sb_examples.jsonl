@@ -1,0 +1,24 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "이제부터 너에게 SmallBasic 프로그래밍언어 예시 코드 중 일부를 보여주고, 그 일부에 대한 완성된 코드를 완성해서 제공해줘."
+    },
+    {
+      "role": "user",
+      "content": ""
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    },
+    {
+      "role": "user",
+      "content": ""
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    }
+  ]
+}
