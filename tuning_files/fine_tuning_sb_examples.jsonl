@@ -10,11 +10,7 @@
     },
     {
       "role": "assistant",
-      "content": 
-      "
-      TextWindow.ForegroundColor = \"Yellow\" \n
-      TextWindow.WriteLine(\"Hello World\")
-      "
+      "content": "TextWindow.ForegroundColor = \"Yellow\" \nTextWindow.WriteLine(\"Hello World\")"
     },
     {
       "role": "user",
@@ -22,29 +18,15 @@
     },
     {
       "role": "assistant",
-      "content": 
-      "
-      TextWindow.Write(\"Enter your Name: \")  \n
-      name = TextWindow.Read() \n
-      TextWindow.WriteLine(\"Hello \" + name) 
-      "
+      "content": "TextWindow.Write(\"Enter your Name: \")  \nname = TextWindow.Read() \nTextWindow.WriteLine(\"Hello \" + name)"
     },
     {
       "role": "user",
-      "content": 
-      "
-      TextWindow.Write(\"Enter your Name: \")  \n
-      name = TextWindow.Read()
-      "
+      "content": "TextWindow.Write(\"Enter your Name: \")  \nname = TextWindow.Read()"
     },
     {
       "role": "assistant",
-      "content": 
-      "
-      TextWindow.Write(\"Enter your Name: \")  \n
-      name = TextWindow.Read() \n
-      TextWindow.WriteLine(\"Hello \" + name) 
-      "
+      "content": "TextWindow.Write(\"Enter your Name: \")  \nname = TextWindow.Read() \nTextWindow.WriteLine(\"Hello \" + name)"
     },
     {
       "role": "user",
@@ -52,50 +34,23 @@
     },
     {
       "role": "assistant",
-      "content": 
-      "
-      TextWindow.Write(\"Enter temperature in Fahrenheit: \")\n
-      fahr = TextWindow.ReadNumber()\n
-      celsius = 5 * (fahr - 32) / 9\n
-      TextWindow.WriteLine(\"Temperature in Celsius is \" + celsius)
-      "
+      "content": "TextWindow.Write(\"Enter temperature in Fahrenheit: \")\nfahr = TextWindow.ReadNumber()\ncelsius = 5 * (fahr - 32) / 9\nTextWindow.WriteLine(\"Temperature in Celsius is \" + celsius)"
     },
     {
       "role": "user",
-      "content": 
-      "
-      TextWindow.Write(\"Enter temperature in Fahrenheit: \")\n
-      fahr = TextWindow.ReadNumber()
-      "
+      "content": "TextWindow.Write(\"Enter temperature in Fahrenheit: \")\nfahr = TextWindow.ReadNumber()"
     },
     {
       "role": "assistant",
-      "content": 
-      "
-      TextWindow.Write(\"Enter temperature in Fahrenheit: \")\n
-      fahr = TextWindow.ReadNumber()\n
-      celsius = 5 * (fahr - 32) / 9\n
-      TextWindow.WriteLine(\"Temperature in Celsius is \" + celsius)
-      "
+      "content": "TextWindow.Write(\"Enter temperature in Fahrenheit: \")\nfahr = TextWindow.ReadNumber()\ncelsius = 5 * (fahr - 32) / 9\nTextWindow.WriteLine(\"Temperature in Celsius is \" + celsius)"
     },
     {
       "role": "user",
-      "content": 
-      "
-      TextWindow.Write(\"Enter temperature in Fahrenheit: \")\n
-      fahr = TextWindow.ReadNumber()\n
-      celsius = 5 * (fahr - 32) / 9
-      "
+      "content": "TextWindow.Write(\"Enter temperature in Fahrenheit: \")\nfahr = TextWindow.ReadNumber()\ncelsius = 5 * (fahr - 32) / 9"
     },
     {
       "role": "assistant",
-      "content": 
-      "
-      TextWindow.Write(\"Enter temperature in Fahrenheit: \")\n
-      fahr = TextWindow.ReadNumber()\n
-      celsius = 5 * (fahr - 32) / 9\n
-      TextWindow.WriteLine(\"Temperature in Celsius is \" + celsius)
-      "
+      "content": "TextWindow.Write(\"Enter temperature in Fahrenheit: \")\nfahr = TextWindow.ReadNumber()\ncelsius = 5 * (fahr - 32) / 9\nTextWindow.WriteLine(\"Temperature in Celsius is \" + celsius)"
     },
     {
       "role": "user",
@@ -103,99 +58,39 @@
     },
     {
       "role": "assistant",
-      "content": 
-      "
-      If (Clock.Hour < 12) Then\n
-      \tTextWindow.WriteLine(\"Good Morning World\")\n
-      EndIf\n
-      If (Clock.Hour >= 12) Then\n
-      \tTextWindow.WriteLine(\"Good Evening World\")\n
-      EndIf
-      "
+      "content": "If (Clock.Hour < 12) Then\n\tTextWindow.WriteLine(\"Good Morning World\")\nEndIf\nIf (Clock.Hour >= 12) Then\n\tTextWindow.WriteLine(\"Good Evening World\")\nEndIf"
     },
     {
       "role": "user",
-      "content": 
-      "
-      If (Clock.Hour < 12) Then\n
-      \tTextWindow.WriteLine(\"Good Morning World\")
-      "
+      "content": "If (Clock.Hour < 12) Then\n\tTextWindow.WriteLine(\"Good Morning World\")"
     },
     {
       "role": "assistant",
-      "content": 
-      "
-      If (Clock.Hour < 12) Then\n
-      \tTextWindow.WriteLine(\"Good Morning World\")\n
-      EndIf\n
-      If (Clock.Hour >= 12) Then\n
-      \tTextWindow.WriteLine(\"Good Evening World\")\n
-      EndIf
-      "
+      "content": "If (Clock.Hour < 12) Then\n\tTextWindow.WriteLine(\"Good Morning World\")\nEndIf\nIf (Clock.Hour >= 12) Then\n\tTextWindow.WriteLine(\"Good Evening World\")\nEndIf"
     },
     {
       "role": "user",
-      "content": 
-      "If (Clock.Hour < 12) Then\n
-      \tTextWindow.WriteLine(\"Good Morning World\")\n
-      EndIf
-      "
+      "content": "If (Clock.Hour < 12) Then\n\tTextWindow.WriteLine(\"Good Morning World\")\nEndIf"
     },
     {
       "role": "assistant",
-      "content": 
-      "
-      If (Clock.Hour < 12) Then\n
-      \tTextWindow.WriteLine(\"Good Morning World\")\n
-      EndIf\n
-      If (Clock.Hour >= 12) Then\n
-      \tTextWindow.WriteLine(\"Good Evening World\")\n
-      EndIf
-      "
+      "content": "If (Clock.Hour < 12) Then\n\tTextWindow.WriteLine(\"Good Morning World\")\nEndIf\nIf (Clock.Hour >= 12) Then\n\tTextWindow.WriteLine(\"Good Evening World\")\nEndIf"
     },
     {
       "role": "user",
-      "content": 
-      "If (Clock.Hour < 12) Then\n
-      \tTextWindow.WriteLine(\"Good Morning World\")\n
-      EndIf\n
-      If (Clock.Hour >= 12) Then
-      "
+      "content": "If (Clock.Hour < 12) Then\n\tTextWindow.WriteLine(\"Good Morning World\")\nEndIf\nIf (Clock.Hour >= 12) Then"
     },
     {
       "role": "assistant",
-      "content": 
-      "
-      If (Clock.Hour < 12) Then\n
-      \tTextWindow.WriteLine(\"Good Morning World\")\n
-      EndIf\n
-      If (Clock.Hour >= 12) Then\n
-      \tTextWindow.WriteLine(\"Good Evening World\")\n
-      EndIf
-      "
+      "content": "If (Clock.Hour < 12) Then\n\tTextWindow.WriteLine(\"Good Morning World\")\nEndIf\nIf (Clock.Hour >= 12) Then\n\tTextWindow.WriteLine(\"Good Evening World\")\nEndIf"
     },
     {
       "role": "user",
-      "content": 
-      "
-      If (Clock.Hour < 12) Then\n
-      \tTextWindow.WriteLine(\"Good Morning World\")\n
-      EndIf\n
-      If (Clock.Hour >= 12) Then\n
-      \tTextWindow.WriteLine(\"Good Evening World\")
-      "
+      "content": "If (Clock.Hour < 12) Then\n\tTextWindow.WriteLine(\"Good Morning World\")\nEndIf\nIf (Clock.Hour >= 12) Then\n\tTextWindow.WriteLine(\"Good Evening World\")"
     },
     {
       "role": "assistant",
-      "content": 
-      "
-      If (Clock.Hour < 12) Then\n
-      \tTextWindow.WriteLine(\"Good Morning World\")\n
-      EndIf\n
-      If (Clock.Hour >= 12) Then\n
-      \tTextWindow.WriteLine(\"Good Evening World\")\n
-      EndIf
-      "
+      "content": "If (Clock.Hour < 12) Then\n\tTextWindow.WriteLine(\"Good Morning World\")\nEndIf\nIf (Clock.Hour >= 12) Then\n\tTextWindow.WriteLine(\"Good Evening World\")\nEndIf"
     },
     {
       "role": "user",
@@ -203,237 +98,71 @@
     },
     {
       "role": "assistant",
-      "content": 
-      "
-      begin:\n
-      TextWindow.Write(\"Enter a number: \")\n
-      num = TextWindow.ReadNumber()\n
-      remainder = Math.Remainder(num, 2)\n
-      If (remainder = 0) Then\n
-      \tTextWindow.WriteLine(\"The number is Even\")\n
-      Else\n
-      \tTextWindow.WriteLine(\"The number is Odd\")\n
-      EndIf\n
-      Goto begin
-      "
+      "content": "begin:\nTextWindow.Write(\"Enter a number: \")\nnum = TextWindow.ReadNumber()\nremainder = Math.Remainder(num, 2)\nIf (remainder = 0) Then\n\tTextWindow.WriteLine(\"The number is Even\")\nElse\n\tTextWindow.WriteLine(\"The number is Odd\")\nEndIf\nGoto begin"
     },
     {
       "role": "user",
-      "content": 
-      "
-      begin:\n
-      TextWindow.Write(\"Enter a number: \")
-      "
+      "content": "begin:\nTextWindow.Write(\"Enter a number: \")"
     },
     {
       "role": "assistant",
-      "content": 
-      "
-      begin:\n
-      TextWindow.Write(\"Enter a number: \")\n
-      num = TextWindow.ReadNumber()\n
-      remainder = Math.Remainder(num, 2)\n
-      If (remainder = 0) Then\n
-      \tTextWindow.WriteLine(\"The number is Even\")\n
-      Else\n
-      \tTextWindow.WriteLine(\"The number is Odd\")\n
-      EndIf\n
-      Goto begin
-      "
+      "content": "begin:\nTextWindow.Write(\"Enter a number: \")\nnum = TextWindow.ReadNumber()\nremainder = Math.Remainder(num, 2)\nIf (remainder = 0) Then\n\tTextWindow.WriteLine(\"The number is Even\")\nElse\n\tTextWindow.WriteLine(\"The number is Odd\")\nEndIf\nGoto begin"
     },
     {
       "role": "user",
-      "content": 
-      "begin:\n
-      TextWindow.Write(\"Enter a number: \")\n
-      num = TextWindow.ReadNumber()
-      "
+      "content": "begin:\nTextWindow.Write(\"Enter a number: \")\nnum = TextWindow.ReadNumber()"
     },
     {
       "role": "assistant",
-      "content": 
-      "
-      begin:\n
-      TextWindow.Write(\"Enter a number: \")\n
-      num = TextWindow.ReadNumber()\n
-      remainder = Math.Remainder(num, 2)\n
-      If (remainder = 0) Then\n
-      \tTextWindow.WriteLine(\"The number is Even\")\n
-      Else\n
-      \tTextWindow.WriteLine(\"The number is Odd\")\n
-      EndIf\n
-      Goto begin
-      "
+      "content": "begin:\nTextWindow.Write(\"Enter a number: \")\nnum = TextWindow.ReadNumber()\nremainder = Math.Remainder(num, 2)\nIf (remainder = 0) Then\n\tTextWindow.WriteLine(\"The number is Even\")\nElse\n\tTextWindow.WriteLine(\"The number is Odd\")\nEndIf\nGoto begin"
     },
     {
       "role": "user",
-      "content": 
-      "begin:\n
-      TextWindow.Write(\"Enter a number: \")\n
-      num = TextWindow.ReadNumber()\n
-      remainder = Math.Remainder(num, 2)
-      "
+      "content": "begin:\nTextWindow.Write(\"Enter a number: \")\nnum = TextWindow.ReadNumber()\nremainder = Math.Remainder(num, 2)"
     },
     {
       "role": "assistant",
-      "content": 
-      "
-      begin:\n
-      TextWindow.Write(\"Enter a number: \")\n
-      num = TextWindow.ReadNumber()\n
-      remainder = Math.Remainder(num, 2)\n
-      If (remainder = 0) Then\n
-      \tTextWindow.WriteLine(\"The number is Even\")\n
-      Else\n
-      \tTextWindow.WriteLine(\"The number is Odd\")\n
-      EndIf\n
-      Goto begin
-      "
+      "content": "begin:\nTextWindow.Write(\"Enter a number: \")\nnum = TextWindow.ReadNumber()\nremainder = Math.Remainder(num, 2)\nIf (remainder = 0) Then\n\tTextWindow.WriteLine(\"The number is Even\")\nElse\n\tTextWindow.WriteLine(\"The number is Odd\")\nEndIf\nGoto begin"
     },
     {
       "role": "user",
-      "content": 
-      "
-      begin:\n
-      TextWindow.Write(\"Enter a number: \")\n
-      num = TextWindow.ReadNumber()\n
-      remainder = Math.Remainder(num, 2)\n
-      If (remainder = 0) Then
-      "
+      "content": "begin:\nTextWindow.Write(\"Enter a number: \")\nnum = TextWindow.ReadNumber()\nremainder = Math.Remainder(num, 2)\nIf (remainder = 0) Then"
     },
     {
       "role": "assistant",
-      "content": 
-      "
-      begin:\n
-      TextWindow.Write(\"Enter a number: \")\n
-      num = TextWindow.ReadNumber()\n
-      remainder = Math.Remainder(num, 2)\n
-      If (remainder = 0) Then\n
-      \tTextWindow.WriteLine(\"The number is Even\")\n
-      Else\n
-      \tTextWindow.WriteLine(\"The number is Odd\")\n
-      EndIf\n
-      Goto begin
-      "
+      "content": "begin:\nTextWindow.Write(\"Enter a number: \")\nnum = TextWindow.ReadNumber()\nremainder = Math.Remainder(num, 2)\nIf (remainder = 0) Then\n\tTextWindow.WriteLine(\"The number is Even\")\nElse\n\tTextWindow.WriteLine(\"The number is Odd\")\nEndIf\nGoto begin"
     },
     {
       "role": "user",
-      "content": 
-      "
-      begin:\n
-      TextWindow.Write(\"Enter a number: \")\n
-      num = TextWindow.ReadNumber()\n
-      remainder = Math.Remainder(num, 2)\n
-      If (remainder = 0) Then\n
-      \tTextWindow.WriteLine(\"The number is Even\")
-      "
+      "content": "begin:\nTextWindow.Write(\"Enter a number: \")\nnum = TextWindow.ReadNumber()\nremainder = Math.Remainder(num, 2)\nIf (remainder = 0) Then\n\tTextWindow.WriteLine(\"The number is Even\")"
     },
     {
       "role": "assistant",
-      "content": 
-      "
-      begin:\n
-      TextWindow.Write(\"Enter a number: \")\n
-      num = TextWindow.ReadNumber()\n
-      remainder = Math.Remainder(num, 2)\n
-      If (remainder = 0) Then\n
-      \tTextWindow.WriteLine(\"The number is Even\")\n
-      Else\n
-      \tTextWindow.WriteLine(\"The number is Odd\")\n
-      EndIf\n
-      Goto begin
-      "
+      "content": "begin:\nTextWindow.Write(\"Enter a number: \")\nnum = TextWindow.ReadNumber()\nremainder = Math.Remainder(num, 2)\nIf (remainder = 0) Then\n\tTextWindow.WriteLine(\"The number is Even\")\nElse\n\tTextWindow.WriteLine(\"The number is Odd\")\nEndIf\nGoto begin"
     },
     {
       "role": "user",
-      "content": 
-      "
-      begin:\n
-      TextWindow.Write(\"Enter a number: \")\n
-      num = TextWindow.ReadNumber()\n
-      remainder = Math.Remainder(num, 2)\n
-      If (remainder = 0) Then\n
-      \tTextWindow.WriteLine(\"The number is Even\")\n
-      Else
-      "
+      "content": "begin:\nTextWindow.Write(\"Enter a number: \")\nnum = TextWindow.ReadNumber()\nremainder = Math.Remainder(num, 2)\nIf (remainder = 0) Then\n\tTextWindow.WriteLine(\"The number is Even\")\nElse"
     },
     {
       "role": "assistant",
-      "content": 
-      "
-      begin:\n
-      TextWindow.Write(\"Enter a number: \")\n
-      num = TextWindow.ReadNumber()\n
-      remainder = Math.Remainder(num, 2)\n
-      If (remainder = 0) Then\n
-      \tTextWindow.WriteLine(\"The number is Even\")\n
-      Else\n
-      \tTextWindow.WriteLine(\"The number is Odd\")\n
-      EndIf\n
-      Goto begin
-      "
+      "content": "begin:\nTextWindow.Write(\"Enter a number: \")\nnum = TextWindow.ReadNumber()\nremainder = Math.Remainder(num, 2)\nIf (remainder = 0) Then\n\tTextWindow.WriteLine(\"The number is Even\")\nElse\n\tTextWindow.WriteLine(\"The number is Odd\")\nEndIf\nGoto begin"
     },
     {
       "role": "user",
-      "content": 
-      "
-      begin:\n
-      TextWindow.Write(\"Enter a number: \")\n
-      num = TextWindow.ReadNumber()\n
-      remainder = Math.Remainder(num, 2)\n
-      If (remainder = 0) Then\n
-      \tTextWindow.WriteLine(\"The number is Even\")\n
-      Else\n
-      \tTextWindow.WriteLine(\"The number is Odd\")
-      "
+      "content": "begin:\nTextWindow.Write(\"Enter a number: \")\nnum = TextWindow.ReadNumber()\nremainder = Math.Remainder(num, 2)\nIf (remainder = 0) Then\n\tTextWindow.WriteLine(\"The number is Even\")\nElse\n\tTextWindow.WriteLine(\"The number is Odd\")"
     },
     {
       "role": "assistant",
-      "content":
-      "
-      begin:\n
-      TextWindow.Write(\"Enter a number: \")\n
-      num = TextWindow.ReadNumber()\n
-      remainder = Math.Remainder(num, 2)\n
-      If (remainder = 0) Then\n
-      \tTextWindow.WriteLine(\"The number is Even\")\n
-      Else\n
-      \tTextWindow.WriteLine(\"The number is Odd\")\n
-      EndIf\n
-      Goto begin
-      "
+      "content": "begin:\nTextWindow.Write(\"Enter a number: \")\nnum = TextWindow.ReadNumber()\nremainder = Math.Remainder(num, 2)\nIf (remainder = 0) Then\n\tTextWindow.WriteLine(\"The number is Even\")\nElse\n\tTextWindow.WriteLine(\"The number is Odd\")\nEndIf\nGoto begin"
     },
     {
       "role": "user",
-      "content": 
-      "
-      begin:\n
-      TextWindow.Write(\"Enter a number: \")\n
-      num = TextWindow.ReadNumber()\n
-      remainder = Math.Remainder(num, 2)\n
-      If (remainder = 0) Then\n
-      \tTextWindow.WriteLine(\"The number is Even\")\n
-      Else\n
-      \tTextWindow.WriteLine(\"The number is Odd\")\n
-      EndIf
-      "
+      "content": "begin:\nTextWindow.Write(\"Enter a number: \")\nnum = TextWindow.ReadNumber()\nremainder = Math.Remainder(num, 2)\nIf (remainder = 0) Then\n\tTextWindow.WriteLine(\"The number is Even\")\nElse\n\tTextWindow.WriteLine(\"The number is Odd\")\nEndIf"
     },
     {
       "role": "assistant",
-      "content":
-      "
-      begin:\n
-      TextWindow.Write(\"Enter a number: \")\n
-      num = TextWindow.ReadNumber()\n
-      remainder = Math.Remainder(num, 2)\n
-      If (remainder = 0) Then\n
-      \tTextWindow.WriteLine(\"The number is Even\")\n
-      Else\n
-      \tTextWindow.WriteLine(\"The number is Odd\")\n
-      EndIf\n
-      Goto begin
-      "
+      "content": "begin:\nTextWindow.Write(\"Enter a number: \")\nnum = TextWindow.ReadNumber()\nremainder = Math.Remainder(num, 2)\nIf (remainder = 0) Then\n\tTextWindow.WriteLine(\"The number is Even\")\nElse\n\tTextWindow.WriteLine(\"The number is Odd\")\nEndIf\nGoto begin"
     },
     {
       "role": "user",
