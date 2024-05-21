@@ -7,27 +7,17 @@ import OpenAI from "openai";
 
 // -- ChatGPT API Code --
 const openai = new OpenAI({
-  organization: "org-0TrPXmRKst6gFbo6R4CWll5c",
-  apiKey: "YOUR_API_KEY",
+  organization: "YOUR-ORGANIZATION-ID",
+  apiKey: "YOUR-API-KEY",
 });
 
 // (Temporary) Fine Tuning Code
 async function generativeAIcommunication(message: string) {
   const completion = await openai.chat.completions.create({
     messages: [
-      {
-        role: "system",
-        content:
-          "You are a great smallbasic programming language developer. You can predict the next code well based on the written code.",
-      },
-      {
-        role: "assistant",
-        content:
-          "You can make a complete sentence based on the already written code and the currently incomplete sentence structure. Please replace the part that says 'Expression' in context correctly.",
-      },
       { role: "user", content: message },
     ],
-    model: "gpt-3.5-turbo",
+    model: "YOUR-GPT-MODEL-ID",
   });
 
   const response = completion.choices[0].message.content;
