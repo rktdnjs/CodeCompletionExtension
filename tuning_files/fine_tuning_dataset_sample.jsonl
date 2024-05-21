@@ -1,0 +1,1 @@
+{"messages" : [{"role" : "system", "content" : "시스템 메시지" }, {"role" : "user", "content" : "유저 메시지(질문)"}, {"role" : "assistant", "content" : "어시스턴트 메시지(질문에 대한 원하는 답변)"}, {"role" : "user", "content" : "..."}, {"role" : "assistant", "content" : "..."}]}
